@@ -12,11 +12,11 @@ if __name__ == '__main__':
     nfiles = os.listdir(os.path.join(datapath, 'NWPU/negative image set/'))
     anno = os.listdir(os.path.join(datapath, 'NWPU/ground truth'))
 
-    ptrain = random.sample(pfiles, len(pfiles) // 3 * 2)
+    ptrain = random.sample(pfiles, len(pfiles) // 3 * 2)  # 取 2/3 为训练集 （有标签的图片）
     peva = ['p' + x.strip('.jpg') for x in pfiles if x not in ptrain]
     ptrain = ['p' + x.strip('.jpg') for x in ptrain]
 
-    ntrain = random.sample(nfiles, len(nfiles) // 3 * 2)
+    ntrain = random.sample(nfiles, len(nfiles) // 3 * 2)  # 取2/3 为novel 训练集
     neva = ['n' + x.strip('.jpg') for x in nfiles if x not in ntrain]
     ntrain = ['n' + x.strip('.jpg') for x in ntrain]
 
